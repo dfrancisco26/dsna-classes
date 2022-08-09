@@ -8,12 +8,12 @@ class Stack {
   push(newItem) {
     this.#list.push(newItem);
   }
+
   peek() {
     return this.#list[this.#list.length - 1];
   }
-}
-// const instanceOfAStack = new Stack(["cat", "dog", "mouse"]);
 
+}
 
 class Queue {
     #list = [];
@@ -29,7 +29,7 @@ class Queue {
     dequeue() {
         this.#list.shift();
     }
-    
+
         get count() {
         return this.#list.length;
     }
@@ -42,4 +42,22 @@ class Queue {
         }
 }
 
-module.exports = { Stack, Queue };
+class Adder {
+    #numbers = [];
+
+    constructor(numArr) {
+        if (numArr) this.#numbers = numArr;
+    }
+
+    get sum() {
+        return this.#numbers[0] + this.#numbers[1]
+    }
+
+
+    push(item) {
+        this.#numbers.push(item)
+    }
+}
+
+
+module.exports = { Stack, Queue, Adder };
