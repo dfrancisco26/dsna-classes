@@ -1,9 +1,39 @@
-const { Stack } = require("./index.js");
+const { Stack, Queue } = require("./index.js");
+
+
 describe("Stack Class", () => {
   it("#push should add a new item to the stack ", () => {
     const stack = new Stack();
     stack.push(1);
     expect(stack.peek()).toEqual(1);
   });
-  // add more tests here...
 });
+
+
+  describe("Queue Class", () => {
+    it("#enqueue should add an item to the back, next item should be the first one added, newest enqueue should be in the back", () => {
+      const queue = new Queue();
+      queue.enqueue("fox");
+      queue.enqueue("goose");
+      queue.enqueue("frog");
+      queue.enqueue("bear");
+      queue.enqueue("stag");
+      expect(queue.count).toBe(5);
+      expect(queue.next).toBe("fox");
+      expect(queue.last).toBe("stag");
+    })
+    
+    it("#dequeue should remove the first item, or the next item to go, and test for the one after", () => {
+      const queue = new Queue();
+      queue.enqueue("fox");
+      queue.enqueue("goose");
+      queue.enqueue("frog");
+      queue.enqueue("bear");
+      queue.enqueue("stag");
+      queue.dequeue();
+      expect(queue.count).toBe(4);
+      expect(queue.next).toBe("goose");
+    })
+  });
+
+  // add more tests here...
